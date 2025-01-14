@@ -10,6 +10,7 @@ namespace NodeCanvas.Tasks.Actions {
 		public Transform cookingSpot, counterSpot;
 		public GameObject[] foods;
 		bool movingToStove = true, pickingUpFood = false, movingToCounter = false;
+		public GameObject moneyText;
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
@@ -24,6 +25,7 @@ namespace NodeCanvas.Tasks.Actions {
 			movingToStove = true;
 			pickingUpFood = false;
 			movingToCounter = false;
+			foods = GameObject.FindGameObjectsWithTag("Food");
 		}
 
 		//Called once per frame while the action is active.
@@ -48,7 +50,14 @@ namespace NodeCanvas.Tasks.Actions {
 			// Serve the food
 			if (agent.transform.position == counterSpot.position)
             {
-				foreach (GameObject food in foods) if (food.GetComponent<Food>().serving) food.GetComponent<Food>().Serve();
+				foreach (GameObject food in foods)
+				{
+					if (food.GetComponent<Food>().serving)
+					{
+						food.GetComponent<Food>().Serve();
+						moneyText.GetComponent<Money>().money += 5;
+					}
+				}
 				EndAction(true);
 			}
 		}

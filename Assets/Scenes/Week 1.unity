@@ -342,8 +342,8 @@ MonoBehaviour:
   _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"walkSpeed":5.0,"waitingSpot":1,"$type":"NodeCanvas.Tasks.Actions.WaitingAT"}]},"_color":{"r":0.3215686,"g":0.9806666,"b":1.0,"a":1.0},"_name":"Waiting","_position":{"x":442.0,"y":222.0},"_comment":"Waits
     for a task","$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"walkSpeed":5.0,"cookingSpot":2,"foodPosition":3,"foodPrefab":4,"$type":"NodeCanvas.Tasks.Actions.CookingAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Cooking","_position":{"x":603.0,"y":422.0},"_comment":"Received
     an order to cook","$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"walkSpeed":5.0,"cookingSpot":2,"$type":"NodeCanvas.Tasks.Actions.FlippingAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Flipping","_position":{"x":723.0,"y":360.0},"_comment":"Flips
-    food on the stove","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"walkSpeed":5.0,"cookingSpot":2,"counterSpot":5,"$type":"NodeCanvas.Tasks.Actions.ServingAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Serving","_position":{"x":842.0,"y":303.0},"_comment":"Serves
-    finished food","$type":"NodeCanvas.StateMachines.ActionState","$id":"3"}],"connections":[{"_condition":{"button":{"_value":6},"$type":"NodeCanvas.Tasks.Conditions.ButtonClicked"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.FlipFoodCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.ServeFoodCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+    food on the stove","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"walkSpeed":5.0,"cookingSpot":2,"counterSpot":5,"moneyText":6,"$type":"NodeCanvas.Tasks.Actions.ServingAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Serving","_position":{"x":842.0,"y":303.0},"_comment":"Serves
+    finished food","$type":"NodeCanvas.StateMachines.ActionState","$id":"3"}],"connections":[{"_condition":{"button":{"_value":7},"$type":"NodeCanvas.Tasks.Conditions.ButtonClicked"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.FlipFoodCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.ServeFoodCT"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
   - {fileID: 687387950}
@@ -351,6 +351,7 @@ MonoBehaviour:
   - {fileID: 158158500}
   - {fileID: 6358631195874935229, guid: a8216df97f5924fd3950b635149aa076, type: 3}
   - {fileID: 1211812869}
+  - {fileID: 1183584007}
   - {fileID: 922428233}
   _boundGraphSource:
     _version: 3.31
@@ -1181,8 +1182,9 @@ GameObject:
   - component: {fileID: 1183584008}
   - component: {fileID: 1183584010}
   - component: {fileID: 1183584009}
+  - component: {fileID: 1183584011}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Total Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1304,6 +1306,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183584007}
   m_CullTransparentMesh: 1
+--- !u!114 &1183584011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183584007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd13de915a92479e8033c36d3781b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 0
 --- !u!1 &1211812868
 GameObject:
   m_ObjectHideFlags: 0
