@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    public bool needToFlip = false, flipping = false, flipped = false, done = false, serving = false;
+    public bool needToFlip = false, flipping = false, flipped = false, done = false, serving = false, served = false;
     public float flipTime, cookTime, flipSpeed, servingSpeed;
-    float timer = 0, flipTimer = 0;
-    Vector3 startRotation;
-    Vector3 flippedRotation;
+    float timer = 0;
     public Transform holdingPosition;
     Animator foodAnimator;
 
@@ -37,17 +35,6 @@ public class Food : MonoBehaviour
             if (timer >= cookTime) done = true;
         }
 
-        // Rotate the food object
-        //if(flipping)
-        //{
-        //    //transform.rotation = Quaternion.Slerp(Quaternion.Euler(startRotation), Quaternion.Euler(flippedRotation), flipTimer);
-        //    //flipTimer += Time.deltaTime * flipSpeed;
-        //    //Debug.Log(transform.rotation);
-        //    GetComponent<Transform>().Rotate(new Vector3(90, 90, 90));
-        //    flipTimer += Time.deltaTime * flipSpeed;
-        //    if (transform.rotation.eulerAngles == flippedRotation) flipping = false;
-        //}
-
         // Move the food object to the player while the food is being served
         if(serving && transform.position != holdingPosition.position) transform.position = Vector3.MoveTowards(transform.position, holdingPosition.position, servingSpeed * Time.deltaTime);
     }
@@ -65,6 +52,7 @@ public class Food : MonoBehaviour
     {
         // Play the animation
         serving = false;
+        served = true;
         foodAnimator.Play("Serve");
     }
 

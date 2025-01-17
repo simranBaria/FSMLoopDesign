@@ -28,7 +28,7 @@ namespace NodeCanvas.Tasks.Conditions {
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() {
 			// Loop through each food item and check if any need to be flipped
-			foreach (GameObject food in foods) if (food.GetComponent<Food>().done) return true;
+			foreach (GameObject food in foods) if (food.GetComponent<Food>().done && !food.GetComponent<Food>().served) return true;
 			return false;
 		}
 	}
